@@ -4,5 +4,3 @@
 
 * **Age**
 * **Gender**
-* **NewAttribute**
-
