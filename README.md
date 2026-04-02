@@ -2,7 +2,7 @@
 
 **Objective: A Governance-First approach to Credit Scoring using Explainable AI (XAI) and Bias Mitigation.**
 
-**Status:** Phase I (Data Ingestion & Framework Mapping)
+**Status:** Phase I (Data Ingestion & Framework Mappings)
 
 **Frameworks:** NIST AI RMF | ISO/IEC 42001 | 4/5ths Rule for Fairness
 
