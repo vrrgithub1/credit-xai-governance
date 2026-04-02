@@ -14,7 +14,7 @@ This project implements a modernized credit decisioning engine that moves beyond
 
 ## 🏛️ Governance & NIST Alignment
 
-We map our development lifecycle directly to the NIST AI RMF pillars:
+We map our development lifecycle directly to the **NIST AI RMF pillars**:
 
 | NIST Pillar | Implementation Strategy |
 | :--- | :--- |
