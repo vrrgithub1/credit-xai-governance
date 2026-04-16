@@ -45,14 +45,14 @@ To ensure data integrity and a clear audit trail, we utilize a Medallion Archite
 
 * **UI:** Streamlit (Interactive Loan Officer Dashboard)
 
+**Status:** Phase IV (Bias Mitigation & Risk Treatment) - ✅ **COMPLIANT**
+
+...
+
 ## 📈 Roadmap
 
-* **[ ] Phase I:** Data Ingestion, EDA, and NIST Mapping (Current)
-
-* **[ ] Phase II:** Baseline Model & Feature Importance
-
-* **[ ] Phase III:** Explainability Layer (Local/Global SHAP)
-
-* **[ ] Phase IV:** Bias Auditing & Mitigation (Fairlearn)
-
-* **[ ] Phase V:** Launch Interactive Credit Dashboard
+* **[X] Phase I:** Data Ingestion, EDA, and NIST Mapping
+* **[X] Phase II:** Baseline Model & Feature Importance
+* **[X] Phase III:** Explainability Layer (Local/Global SHAP)
+* **[X] Phase IV:** Bias Auditing & Mitigation (Fairlearn) - **Achieved 0.9583 Fairness Ratio**
+* **[ ] Phase V:** Launch Interactive Credit Dashboard (Next Steps)
