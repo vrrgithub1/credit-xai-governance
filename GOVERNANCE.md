@@ -6,12 +6,15 @@
 * **Gender**
 
 ## NIST 'Map' Function: Proxy Identification
-Initial EDA has identified several features that correlate with the protected attribute **Age (Attribute 13)**:
-* **Attribute 15 (Housing):** 0.30 correlation.
-* **Attribute 11 (Residence Duration):** 0.26 correlation.
-* **Attribute 7 (Employment Duration):** 0.25 correlation.
+Initial EDA has identified several features that correlate with or act as proxies for the protected attributes **Age (Attribute 13)** and **Gender**:
 
-**Risk Mitigation:** During Phase IV (Fairness Auditing), we will specifically test if these features lead to a 'Disparate Impact' on younger applicants (e.g., under 25).
+* **Attribute 15 (Housing):** 0.30 correlation with Age (Strong proxy for life stage).
+* **Attribute 11 (Residence Duration):** 0.26 correlation (Proxy for stability/age).
+* **Attribute 7 (Employment Duration):** 0.25 correlation (Significant proxy for professional experience/age).
+* **Attribute 9 (Personal Status):** Contributes to ~25% variance in risk distribution; acts as a primary proxy for **Gender** and marital life-stage.
+
+**Risk Mitigation:** During Phase IV (Fairness Auditing), we will specifically test if these features lead to a 'Disparate Impact' on younger applicants (under 25) and ensure that Attribute 9 does not introduce gender-based discrimination into the decision-making engine.
+
 
 ## NIST 'Measure' Phase: Differential Impact Analysis (Phase II)
 
