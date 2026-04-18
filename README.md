@@ -43,7 +43,13 @@ To ensure data integrity and a clear audit trail, we utilize a Medallion Archite
 1. **🥈 Silver (Cleaned):** Feature engineering, handling of missing values, and categorical encoding.
 
 1. **🥇 Gold (Inference):** The final XGBoost model integrated with the SHAP explainability layer.
+
+## The "Living Lab" Architecture Visual
+
+[Raw Data] -> Bronze (Ingestion) -> Silver (Cleaned) -> Gold (Inference Layer: 47 Features)
+
 ![Technical Architecture Diagram](reports/Technical%20Methodology.PNG)
+
 
 ## � Project Folder Structure
 
@@ -98,6 +104,31 @@ This section provides brief descriptions of all key files in the project.
 * `fair_model_shap_summary.png` — SHAP summary plot visualizing feature importance for the fair model.
 * `shap_summary_compliant.png` — SHAP summary plot for the compliant baseline model.
 
+## 🧩 Technical Requirements
+
+The Streamlit dashboard in `src/app.py` depends on the following Python packages and project assets:
+
+* `Python 3.8+`
+* `streamlit`
+* `pandas`
+* `numpy`
+* `scikit-learn`
+* `shap`
+* `matplotlib`
+* `joblib`
+
+Additional requirement:
+
+* The dashboard expects the model artifact `models/fair_model_optimized.pkl` to exist and be accessible from the repository root.
+
+Installation example:
+
+```bash
+pip install streamlit pandas numpy scikit-learn shap matplotlib joblib
+```
+
+If the model artifact is not present, first run the training pipeline scripts in `src/` to generate `models/fair_model_optimized.pkl`.
+
 ## �🛠️ The "Phase I" Stack
 
 * **Modeling:** XGBoost (Classification)
@@ -122,6 +153,29 @@ This section provides brief descriptions of all key files in the project.
 * **[X] Phase IV:** Bias Auditing & Mitigation (Fairlearn) - **Achieved 0.9583 Fairness Ratio**
 * **[✅] Phase V:** Launch Interactive Credit 
 Dashboard (In Progress)
+
+## The Repository map to NIST AI RMF Functions
+
+| **NIST AI RMF Function** | **Repository Process** |
+| :--- | :--- |
+| **MAP** | Identification of proxies (Attributes 9 & 15) that leaked age data. |
+| **MEASURE** | Quantification of bias using the Demographic Parity Ratio. |
+| **MANAGE** | Implementation of ThresholdOptimizer and SHAP explainability. |
+| **GOVERN** | Credit XAI: Governance and Decision Portal and Production of the automated "Governance Audit Report" |
+
+## The "Hero" Metric Table
+
+| **Metric** | **Initial Model (Baseline)** | **Governed Model (Mitigated)** |
+| :--- | :--- | :--- |
+| **ROC-AUC (Accuracy)** | 0.8000 | **0.7992** |
+| **Fairness Ratio (Age)** | 0.73 (FAIL) | **0.9583 (PASS)** |
+| **Regulatory Status** | Non-Compliant | **Certified Compliant** |
+
+
+
+## Link to the PPT/Case Study
+
+* [Credit_XAI_Case_Study_Document.pdf](Credit_XAI_Case_Study_Document.pdf)
 
 ## 👤 Author and Developer
 
