@@ -43,6 +43,7 @@ To ensure data integrity and a clear audit trail, we utilize a Medallion Archite
 1. **🥈 Silver (Cleaned):** Feature engineering, handling of missing values, and categorical encoding.
 
 1. **🥇 Gold (Inference):** The final XGBoost model integrated with the SHAP explainability layer.
+![Technical Architecture Diagram](reports/Technical%20Methodology.PNG)
 
 ## � Project Folder Structure
 
@@ -56,6 +57,46 @@ This repository is organized to support data ingestion, model training, explaina
 * `notebooks/` — Exploratory analysis and governance-focused investigations.
 * `reports/` — Generated governance, fairness, and audit deliverables.
 * `src/` — Core application logic, including data pipelines, model training, explainability, and bias auditing.
+## 📄 File Descriptions
+
+This section provides brief descriptions of all key files in the project.
+
+### Core Scripts (`src/`)
+
+* `app.py` — Streamlit application for the interactive credit decisioning dashboard, integrating the fair model with SHAP explanations for transparency.
+* `bias_audit.py` — Performs bias auditing using Fairlearn metrics to assess model fairness across protected groups.
+* `data_pipeline.py` — Manages the overall data processing pipeline from ingestion to preprocessing.
+* `evaluate_models.py` — Evaluates trained models using ROC-AUC scores and generates performance metrics.
+* `explain_fair_model.py` — Generates SHAP explanations for the optimized fair model to provide feature importance insights.
+* `explain_shap.py` — Runs SHAP audit on the compliant baseline model, producing global summary plots.
+* `fairness_audit.py` — Conducts fairness audits to ensure compliance with fairness standards like the 4/5ths rule.
+* `ingest_data.py` — Ingests raw credit data from UCI repository and saves it to the bronze layer.
+* `mitigate_bias.py` — Applies bias mitigation techniques using Fairlearn's ThresholdOptimizer for demographic parity.
+* `preprocess_silver.py` — Preprocesses raw data, handles missing values, encodes categoricals, and creates train/test splits in the silver layer.
+* `train_baseline.py` — Trains baseline XGBoost models (full and compliant versions) and saves them to the models directory.
+* `validate_fair_model.py` — Validates the mitigated fair model using fairness metrics and performance scores.
+
+### Data Files (`data/`)
+
+* `bronze/raw_credit_data.csv` — Raw ingested credit dataset from UCI Statlog German Credit Data.
+* `silver/silver_credit_data.csv` — Preprocessed and cleaned credit data after feature engineering.
+* `silver/test_set.csv` — Test dataset split for model evaluation.
+* `silver/train_set.csv` — Training dataset split for model training.
+
+### Model Artifacts (`models/`)
+
+* `baseline_compliant.pkl` — Pickled XGBoost model trained without protected attributes (Age/Gender).
+* `baseline_full.pkl` — Pickled XGBoost model trained on full feature set including protected attributes.
+* `fair_model_optimized.pkl` — Pickled optimized fair model after bias mitigation using ThresholdOptimizer.
+
+### Notebooks (`notebooks/`)
+
+* `01_EDA_Governance_Audit.ipynb` — Jupyter notebook for exploratory data analysis and initial governance auditing.
+
+### Reports (`reports/`)
+
+* `fair_model_shap_summary.png` — SHAP summary plot visualizing feature importance for the fair model.
+* `shap_summary_compliant.png` — SHAP summary plot for the compliant baseline model.
 
 ## �🛠️ The "Phase I" Stack
 
@@ -79,5 +120,31 @@ This repository is organized to support data ingestion, model training, explaina
 * **[X] Phase II:** Baseline Model & Differential Impact Analysis ✅
 * **[X] Phase III:** Explainability Layer (Local/Global SHAP)
 * **[X] Phase IV:** Bias Auditing & Mitigation (Fairlearn) - **Achieved 0.9583 Fairness Ratio**
-* **[✅] Phase V:** Launch Interactive Credit Dashboard (In Progress)
+* **[✅] Phase V:** Launch Interactive Credit 
+Dashboard (In Progress)
+
+## 👤 Author and Developer
+
+**Venkat Rajadurai**  
+*Author and Lead Developer*  
+
+Venkat Rajadurai is a data scientist and AI ethics advocate specializing in responsible AI development. This project represents an implementation of governance-first AI principles in high-stakes domains like credit scoring.
+
+For inquiries or collaborations, please reach out via [GitHub](https://github.com/vrrgithub1) or professional networks.
+
+## ⚠️ Disclaimer
+
+
+This project is developed for **educational and research purposes only**. It demonstrates concepts in ethical AI, explainable machine learning, and bias mitigation in credit scoring, but is **not intended for production use or real-world credit decisioning**.
+
+### Important Notes:
+- **No Certification:** The models and methodologies presented here have not been certified or validated for regulatory compliance in any jurisdiction.
+- **Data Limitations:** Uses publicly available datasets (e.g., UCI Statlog German Credit Data) which may not reflect current market conditions or diverse populations.
+- **Not Financial Advice:** This is not financial or legal advice. Credit decisions should be made by qualified professionals using approved systems.
+- **Bias and Fairness:** While efforts have been made to mitigate bias, no AI system is entirely free from potential biases or errors.
+- **Performance:** Model performance metrics are based on historical data and may not predict future outcomes.
+- **Liability:** The authors and contributors are not liable for any consequences arising from the use or misuse of this code or models.
+
+For production credit scoring systems, consult with regulatory bodies, legal experts, and certified AI governance frameworks. Always prioritize ethical considerations and human oversight in high-stakes decisions.
+
 
