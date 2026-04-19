@@ -78,8 +78,6 @@ This section provides brief descriptions of all key files in the project.
 ### Core Scripts (`src/`)
 
 * `app.py` — Streamlit application for the interactive credit decisioning dashboard, integrating the fair model with SHAP explanations for transparency.
-* `bias_audit.py` — Performs bias auditing using Fairlearn metrics to assess model fairness across protected groups.
-* `data_pipeline.py` — Manages the overall data processing pipeline from ingestion to preprocessing.
 * `evaluate_models.py` — Evaluates trained models using ROC-AUC scores and generates performance metrics.
 * `explain_fair_model.py` — Generates SHAP explanations for the optimized fair model to provide feature importance insights.
 * `explain_shap.py` — Runs SHAP audit on the compliant baseline model, producing global summary plots.
