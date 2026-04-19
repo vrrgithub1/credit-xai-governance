@@ -55,9 +55,9 @@ To ensure data integrity and a clear audit trail, we utilize a Medallion Archite
 
 ![Technical Architecture Diagram](reports/Technical%20Methodology.PNG)
 
-![Streamlit Dashboard for Credit XAI Governance Decision Portal](reports/Credit-XAI-Governance-Decision-Portal.PNG)
+![Streamlit Dashboard for Credit XAI Governance Decision Portal](reports/Credit-XAI-Governance-Decision-Portal.png)
 
-![Decision Transparency (Reason Codes)](reports/Decision-Transparency-Reason-Codes.PNG)
+![Decision Transparency (Reason Codes)](reports/Decision-Transparency-Reason-Codes.png)
 
 ## � Project Folder Structure
 
