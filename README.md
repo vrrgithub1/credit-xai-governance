@@ -14,7 +14,7 @@ This project implements a modernized credit decisioning engine that moves beyond
 
 ## 🏛️ Governance & NIST Alignment
 
-We map our development lifecycle directly to the **NIST AI RMF pillars**:
+We map our development lifecycle directly to the **NIST AI RMF pillars** to support our Ongoing Monitoring.:
 
 | NIST Pillar | Implementation Strategy |
 | :--- | :--- |
@@ -22,6 +22,11 @@ We map our development lifecycle directly to the **NIST AI RMF pillars**:
 | Map | Identification of "Proxies for Bias" during the EDA phase to prevent indirect discrimination. |
 | Measure | Quantifying fairness via Disparate Impact Ratios and performance via AUC-ROC. |
 | Manage | Implementing SHAP (Shapley Additive Explanations) to provide human-readable "Reason Codes." |
+
+## Link to the PPT/Case Study
+
+* For a high-level executive summary of the governance methodology and results, [View the Case Study PDF.](Credit_XAI_Case_Study_Document.pdf)
+
 
 ## 📊 Model Performance & Compliance (NIST 'Measure' Phase)
 
@@ -42,7 +47,7 @@ To ensure data integrity and a clear audit trail, we utilize a Medallion Archite
 
 1. **🥈 Silver (Cleaned):** Feature engineering, handling of missing values, and categorical encoding.
 
-1. **🥇 Gold (Inference):** The final XGBoost model integrated with the SHAP explainability layer.
+1. **🥇 Gold (Inference):** The final XGBoost model integrated with the SHAP explainability layer that supports 47-feature alignment currently.
 
 ## The "Living Lab" Architecture Visual
 
@@ -50,6 +55,9 @@ To ensure data integrity and a clear audit trail, we utilize a Medallion Archite
 
 ![Technical Architecture Diagram](reports/Technical%20Methodology.PNG)
 
+![Streamlit Dashboard for Credit XAI Governance Decision Portal](reports/Credit-XAI-Governance-Decision-Portal.PNG)
+
+![Decision Transparency (Reason Codes)](reports/Decision-Transparency-Reason-Codes.PNG)
 
 ## � Project Folder Structure
 
@@ -172,10 +180,6 @@ Dashboard (In Progress)
 | **Regulatory Status** | Non-Compliant | **Certified Compliant** |
 
 
-
-## Link to the PPT/Case Study
-
-* [Credit_XAI_Case_Study_Document.pdf](Credit_XAI_Case_Study_Document.pdf)
 
 ## 👤 Author and Developer
 
