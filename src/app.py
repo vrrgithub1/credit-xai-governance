@@ -5,6 +5,7 @@ import numpy as np
 import shap
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LogisticRegression
+from datetime import datetime
 
 
 # 1. Human-Readable Mapping Dictionary
@@ -16,8 +17,10 @@ FEATURE_LABELS = {
     'Attribute13': 'Applicant Age'
 }
 
+current_date = datetime.now().strftime("%B %d, %Y")
+
 # Set Page Config
-st.set_page_config(page_title="Credit XAI Governance Dashboard", layout="wide")
+st.set_page_config(page_title=f"Credit XAI Governance Dashboard - {current_date}", layout="wide")
 
 # 1. Load the "Certified" Fair Model
 @st.cache_resource
@@ -34,7 +37,7 @@ model_fair, explainer = load_assets()
 # You can get this list from your training script or by checking model_fair.estimator.feature_names_in_
 EXPECTED_FEATURES = model_fair.estimator.feature_names_in_
 
-st.title("🛡️ Credit XAI: Governance & Decisioning Portal")
+st.title(f"🛡️ Credit XAI: Governance & Decisioning Portal - {current_date}")
 st.markdown("---")
 
 # 2. Sidebar: Applicant Input
@@ -101,7 +104,7 @@ if st.button("Submit for Credit Decision"):
 
         # 5. SHAP Transparency Plot [cite: 1, 4]
         with col2:
-            st.subheader("Decision Transparency (Reason Codes)")
+            st.subheader(f"Decision Transparency (Reason Codes)")
             shap_values = explainer.shap_values(encoded_input)
             
             # Using the full encoded_input ensures the plot shows all impact factors 
@@ -113,7 +116,7 @@ if st.button("Submit for Credit Decision"):
                 matplotlib=True, 
                 show=False
             )
-            plt.title("Decision Transparency (Reason Codes)", fontsize=16, y=1.5)
+            plt.title(f"Decision Transparency (Reason Codes) - {current_date}", fontsize=16, y=1.5)
             st.pyplot(plt.gcf())
             plt.clf()
 
