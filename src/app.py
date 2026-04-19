@@ -113,6 +113,7 @@ if st.button("Submit for Credit Decision"):
                 matplotlib=True, 
                 show=False
             )
+            plt.title("Decision Transparency (Reason Codes)", fontsize=16, y=1.5)
             st.pyplot(plt.gcf())
             plt.clf()
 
