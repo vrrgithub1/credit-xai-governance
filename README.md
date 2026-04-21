@@ -59,6 +59,9 @@ To ensure data integrity and a clear audit trail, we utilize a Medallion Archite
 
 ![Decision Transparency (Reason Codes)](reports/Decision-Transparency-Reason-Codes.png)
 
+![Credit XAI Governance Audit Report](reports/Credit-XAI-Governance-Audit-Report.png)
+
+
 ## � Project Folder Structure
 
 This repository is organized to support data ingestion, model training, explainability, and governance auditing.
